@@ -1,0 +1,32 @@
+.url-shortener {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.url-shortener__title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.url-shortener__url-section {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.url-shortener__link {
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.url-shortener__action {
+    flex-grow: 0;
+    background-color: $color-green;
+    color: $color-white;
+    padding: 0 20px;
+}
+
+.url-shortener__message {
+    color: $color-red;
+}

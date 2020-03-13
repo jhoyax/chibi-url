@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: $color-green;
+
+    a {
+        color: $color-white;
+    }
+}
+
+.nav__list {
+    display: flex;
+    list-style: none;
+
+    li {
+        margin-left: 20px;
+    }
+}

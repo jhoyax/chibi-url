@@ -1,0 +1,16 @@
+<template>
+    <div class="section container">
+        <h1>About Us</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras venenatis metus ipsum, nec tempor est malesuada laoreet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris egestas orci vel elit vulputate accumsan. Suspendisse ultrices, augue eu facilisis maximus, magna enim malesuada magna, eget feugiat metus nisi at nunc. Integer pellentesque luctus augue facilisis sodales. Nullam vel mauris sed magna facilisis eleifend quis eu nunc. Vivamus metus lacus, consequat a magna in, imperdiet tincidunt massa. Fusce id libero neque. Integer quis dolor sit amet lectus rhoncus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras venenatis metus ipsum, nec tempor est malesuada laoreet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris egestas orci vel elit vulputate accumsan. Suspendisse ultrices, augue eu facilisis maximus, magna enim malesuada magna, eget feugiat metus nisi at nunc. Integer pellentesque luctus augue facilisis sodales. Nullam vel mauris sed magna facilisis eleifend quis eu nunc. Vivamus metus lacus, consequat a magna in, imperdiet tincidunt massa. Fusce id libero neque. Integer quis dolor sit amet lectus rhoncus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras venenatis metus ipsum, nec tempor est malesuada laoreet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris egestas orci vel elit vulputate accumsan. Suspendisse ultrices, augue eu facilisis maximus, magna enim malesuada magna, eget feugiat metus nisi at nunc. Integer pellentesque luctus augue facilisis sodales. Nullam vel mauris sed magna facilisis eleifend quis eu nunc. Vivamus metus lacus, consequat a magna in, imperdiet tincidunt massa. Fusce id libero neque. Integer quis dolor sit amet lectus rhoncus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras venenatis metus ipsum, nec tempor est malesuada laoreet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris egestas orci vel elit vulputate accumsan. Suspendisse ultrices, augue eu facilisis maximus, magna enim malesuada magna, eget feugiat metus nisi at nunc. Integer pellentesque luctus augue facilisis sodales. Nullam vel mauris sed magna facilisis eleifend quis eu nunc. Vivamus metus lacus, consequat a magna in, imperdiet tincidunt massa. Fusce id libero neque. Integer quis dolor sit amet lectus rhoncus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras venenatis metus ipsum, nec tempor est malesuada laoreet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris egestas orci vel elit vulputate accumsan. Suspendisse ultrices, augue eu facilisis maximus, magna enim malesuada magna, eget feugiat metus nisi at nunc. Integer pellentesque luctus augue facilisis sodales. Nullam vel mauris sed magna facilisis eleifend quis eu nunc. Vivamus metus lacus, consequat a magna in, imperdiet tincidunt massa. Fusce id libero neque. Integer quis dolor sit amet lectus rhoncus porttitor.</p>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'About',
+}
+</script>

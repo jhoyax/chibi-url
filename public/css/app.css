@@ -1,0 +1,453 @@
+/*! sanitize.css | CC0 Public Domain | github.com/jonathantneal/sanitize.css */
+
+/*
+ * Normalization
+ */
+
+:root {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+details {
+  display: block;
+}
+
+input[type=number] {
+  width: auto;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+main {
+  display: block;
+}
+
+summary {
+  display: block;
+}
+
+pre {
+  overflow: auto;
+}
+
+progress {
+  display: inline-block;
+}
+
+small {
+  font-size: 75%;
+}
+
+template {
+  display: none;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[hidden] {
+  display: none;
+}
+
+[unselectable] {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/*
+ * Universal inheritance
+ */
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+* {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+/*
+ * Opinionated defaults
+ */
+
+*,
+::before,
+::after {
+  border-style: solid;
+  border-width: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  box-sizing: border-box;
+  cursor: default;
+  font: 16px/1.5 sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  background-color: #FFFFFF;
+}
+
+a {
+  text-decoration: none;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+button,
+[type=button],
+[type=date],
+[type=datetime],
+[type=datetime-local],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=reset],
+[type=search],
+[type=submit],
+[type=tel],
+[type=text],
+[type=time],
+[type=url],
+[type=week],
+select,
+textarea {
+  min-height: 1.5em;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+}
+
+nav ol,
+nav ul {
+  list-style: none;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select::-ms-value {
+  color: currentColor;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+::-moz-selection {
+  background-color: #B3D4FC;
+  text-shadow: none;
+}
+
+::selection {
+  background-color: #B3D4FC;
+  text-shadow: none;
+}
+
+@media screen {
+  [hidden~=screen] {
+    display: inherit;
+  }
+
+  [hidden~=screen]:not(:active):not(:focus):not(:target) {
+    clip: rect(0 0 0 0) !important;
+    position: absolute !important;
+  }
+}
+
+a {
+  color: #273849;
+}
+
+input {
+  border: 1px solid #dadada;
+  outline: none;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+body {
+  color: #273849;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.container {
+  padding: 0 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #42b983;
+}
+
+.header a {
+  color: #fff;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+}
+
+.nav__list li {
+  margin-left: 20px;
+}
+
+.url-shortener {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.url-shortener__title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.url-shortener__url-section {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.url-shortener__link {
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.url-shortener__action {
+  flex-grow: 0;
+  background-color: #42b983;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.url-shortener__message {
+  color: #bb3535;
+}
+
+.links {
+  display: flex;
+  border-top: 1px solid #dadada;
+  height: 100vh;
+}
+
+.links__list {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+}
+
+.links__item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.links__item + .links__item {
+  border-top: 1px solid #dadada;
+}
+
+.links__item--active {
+  background-color: #fff;
+}
+
+.links__item-long {
+  color: #304455;
+}
+
+.links__item-short {
+  font-size: 0.75rem;
+  color: #35bb35;
+}
+
+.links__details {
+  flex-grow: 1;
+  padding: 20px 30px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(218, 218, 218, 0.5);
+}
+
+.modal__content {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  background-color: #fff;
+  padding: 20px 25px;
+}
+
+.modal__title {
+  border-bottom: 1px solid #dadada;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.modal__title h1 {
+  font-size: 1.5rem;
+}
+
+.modal__body {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.modal__body ul {
+  display: flex;
+  list-style: none;
+}
+
+.modal__body li + li:before {
+  content: "|";
+  margin: 0 5px;
+}
+
+.modal__body a {
+  color: #42b983;
+}
+
+.form {
+  border: 1px solid #dadada;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+.form__field {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.form__group {
+  margin-bottom: 10px;
+}
+
+.form__group a {
+  color: #42b983;
+}
+
+.form__action {
+  padding: 10px 15px;
+  width: 100%;
+  color: #fff;
+  background-color: #42b983;
+  margin-bottom: 10px;
+}
+
+.form__title {
+  font-size: 1.5rem;
+}
+
+.section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.section--center {
+  display: flex;
+  justify-content: center;
+}
+
+.messages-list {
+  list-style: none;
+  color: #bb3535;
+}
+
+.messages-list__item--success {
+  color: #35bb35;
+}
+
