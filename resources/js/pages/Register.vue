@@ -7,17 +7,17 @@
             <div class="form__group">
                 <label>Name</label>
                 <input type="text" class="form__field" v-model="fields.name" required maxlength="255"/>
-                <messages-list v-bind:items="messages.name"/>
+                <messages-list :items="messages.name"/>
             </div>
             <div class="form__group">
                 <label>Email</label>
                 <input type="email" class="form__field" v-model="fields.email" required maxlength="255"/>
-                <messages-list v-bind:items="messages.email"/>
+                <messages-list :items="messages.email"/>
             </div>
             <div class="form__group">
                 <label>Password</label>
                 <input type="password" class="form__field" v-model="fields.password" required/>
-                <messages-list v-bind:items="messages.password"/>
+                <messages-list :items="messages.password"/>
             </div>
             <div class="form__group">
                 <label>Confirm Password</label>
@@ -27,9 +27,9 @@
                 <button
                     type="submit"
                     class="form__action"
-                    v-on:click="handleSubmit"
+                    @click="handleSubmit"
                 >Register</button>
-                <messages-list v-bind:items="messages.general" v-bind:isSuccess="isSuccess"/>
+                <messages-list :items="messages.general" :isSuccess="isSuccess"/>
             </div>
             <div class="form__group">
                 Already have an account? <router-link :to="{ name: 'login' }">Login here</router-link>.
@@ -83,6 +83,7 @@ export default {
                 that.fields.name = '';
                 that.fields.email = '';
                 that.fields.password = '';
+                that.fields.password_confirmation = '';
             }).catch(error => {
                 that.messages.general = [error.response.data.message];
                 that.messages.name = error.response.data.errors.name;

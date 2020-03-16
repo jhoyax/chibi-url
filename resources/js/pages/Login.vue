@@ -7,20 +7,20 @@
             <div class="form__group">
                 <label>Email</label>
                 <input type="email" class="form__field" v-model="fields.email" required/>
-                <messages-list v-bind:items="messages.email"/>
+                <messages-list :items="messages.email"/>
             </div>
             <div class="form__group">
                 <label>Password</label>
                 <input type="password" class="form__field" v-model="fields.password" required/>
-                <messages-list v-bind:items="messages.password"/>
+                <messages-list :items="messages.password"/>
             </div>
             <div class="form__group">
                 <button
                     type="submit"
                     class="form__action"
-                    v-on:click="handleSubmit"
+                    @click="handleSubmit"
                 >Login</button>
-                <messages-list v-bind:items="messages.general" v-bind:isSuccess="isSuccess"/>
+                <messages-list :items="messages.general" :isSuccess="isSuccess"/>
             </div>
             <div class="form__group">
                 No account yet? <router-link :to="{ name: 'register' }">Register now</router-link>.

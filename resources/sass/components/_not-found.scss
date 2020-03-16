@@ -1,0 +1,15 @@
+.not-found-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-size: 15rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+}

@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AboutUs from './pages/About';
+import NotFound from './pages/NotFound';
 
 Vue.use(VueRouter);
 
@@ -29,6 +31,10 @@ let router = new VueRouter({
             path: '/about-us',
             name: 'about-us',
             component: AboutUs,
+        },
+        {
+            path: '*',
+            component: NotFound,
         },
     ]
 });

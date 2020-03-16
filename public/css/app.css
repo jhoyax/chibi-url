@@ -251,6 +251,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.text-bold {
+  font-weight: bold;
+}
+
 .container {
   padding: 0 30px;
 }
@@ -281,6 +285,7 @@ button:disabled {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  min-height: 150px;
 }
 
 .url-shortener__title {
@@ -312,14 +317,16 @@ button:disabled {
 .links {
   display: flex;
   border-top: 1px solid #dadada;
-  height: 100vh;
 }
 
 .links__list {
-  flex-grow: 0;
   display: flex;
   flex-direction: column;
   background-color: #f1f1f1;
+  width: 40%;
+  height: 460px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .links__item {
@@ -337,6 +344,7 @@ button:disabled {
 
 .links__item-long {
   color: #304455;
+  word-break: break-all;
 }
 
 .links__item-short {
@@ -344,9 +352,41 @@ button:disabled {
   color: #35bb35;
 }
 
+.links__item-date {
+  font-size: 0.75rem;
+}
+
 .links__details {
-  flex-grow: 1;
   padding: 20px 30px;
+  width: 60%;
+}
+
+.links__details-date {
+  font-size: 0.75rem;
+  margin-bottom: 10px;
+}
+
+.links__details-long {
+  word-break: break-all;
+  margin-bottom: 10px;
+}
+
+.links__details-short {
+  font-size: 0.75rem;
+}
+
+.details-short__url {
+  margin-bottom: 10px;
+}
+
+.details-short__url a {
+  color: #35bb35;
+}
+
+.details-short__actions button {
+  padding: 3px 8px;
+  color: #fff;
+  background-color: #42b983;
 }
 
 .modal {
@@ -449,5 +489,21 @@ button:disabled {
 
 .messages-list__item--success {
   color: #35bb35;
+}
+
+.not-found-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found-section h1 {
+  font-size: 15rem;
+}
+
+.not-found-section p {
+  font-size: 2rem;
 }
 

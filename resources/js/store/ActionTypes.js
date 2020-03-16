@@ -1,0 +1,7 @@
+const FETCH_URLS = "FETCH_URLS";
+const FETCH_ACTIVE_URL = "FETCH_ACTIVE_URL";
+
+export {
+    FETCH_URLS,
+    FETCH_ACTIVE_URL,
+};

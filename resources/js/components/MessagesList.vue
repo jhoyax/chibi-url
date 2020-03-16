@@ -2,8 +2,8 @@
     <ul class="messages-list">
         <li
             v-for="(item, index) in items"
-            v-bind:key="index"
-            v-bind:class="{ 'messages-list__item--success':isSuccess }"
+            :key="index"
+            :class="{ 'messages-list__item--success':isSuccess }"
         >{{item}}</li>
     </ul>
 </template>

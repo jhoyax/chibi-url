@@ -8,7 +8,7 @@
                 <li><router-link :to="{ name: 'about-us' }">About Us</router-link></li>
                 <li><router-link :to="{ name: 'login' }" v-if="!isLoggedIn">Login</router-link></li>
                 <li><router-link :to="{ name: 'register' }" v-if="!isLoggedIn">Register</router-link></li>
-                <li><a href="#" v-if="isLoggedIn" v-on:click="handleLogout">Logout</a></li>
+                <li><a href="#" v-if="isLoggedIn" @click="handleLogout">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -28,7 +28,7 @@ export default {
 
             let that =  this;
             axios.post('api/logout').then(response => {
-                location.reload();
+                location.href = '/login';
             }).catch(error => {
                 alert(error.response.data.message);
             });

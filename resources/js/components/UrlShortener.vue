@@ -5,16 +5,17 @@
             <input type="url" class="url-shortener__link" placeholder="http://" v-model="fields.long_url">
             <button
                 class="url-shortener__action"
-                v-on:click="createShortUrl"
-                v-bind:disabled=button.isDisabled
+                @click="createShortUrl"
+                :disabled=button.isDisabled
             >{{ button.name }}</button>
         </div>
-        <messages-list v-bind:items="messages.long_url" v-bind:isSuccess="isSuccess"/>
+        <messages-list :items="messages.long_url" :isSuccess="isSuccess"/>
     </div>
 </template>
 
 <script>
 import MessagesList from './MessagesList';
+import { FETCH_URLS } from "../store/ActionTypes.js";
 
 export default {
     name: 'UrlShortener',
@@ -56,6 +57,8 @@ export default {
                     that.button.name = 'Create';
                     that.button.isDisabled = false;
                     that.isSuccess = true;
+
+                    this.$store.dispatch(FETCH_URLS);
                 }).catch(function (error) {
                     that.messages.long_url = error.response.data.errors.long_url ? error.response.data.errors.long_url : error.response.data.message;
                     that.button.name = 'Create';
