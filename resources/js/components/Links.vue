@@ -1,18 +1,25 @@
 <template>
     <div class="links">
         <div class="links__list" v-if="urls.length">
+            <div class="links__item" >
+                <div class="links__item-date">{{ urls.length }} Links</div>
+            </div>
             <div
                 v-for="(url, index) in urls"
                 :key="index"
                 class="links__item"
                 @click="handleViewUrl(url.id)"
+                :class="{ 'links__item--active' : (url.id === activeUrl.id) }"
             >
                 <div class="links__item-date">{{ url.date }}</div>
-                <div class="links__item-long">{{ url.long_url }}</div>
+                <div class="links__item-long">{{ url.title }}</div>
                 <div class="links__item-short">{{ url.short_url_full }}</div>
             </div>
         </div>
         <div class="links__list" v-else>
+            <div class="links__item" >
+                <div class="links__item-date">0 Links</div>
+            </div>
             <div class="links__item" >
                 <div class="links__item-long">No items found.</div>
             </div>

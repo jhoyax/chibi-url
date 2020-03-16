@@ -2036,6 +2036,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -20337,36 +20344,49 @@ var render = function() {
       ? _c(
           "div",
           { staticClass: "links__list" },
-          _vm._l(_vm.urls, function(url, index) {
-            return _c(
-              "div",
-              {
-                key: index,
-                staticClass: "links__item",
-                on: {
-                  click: function($event) {
-                    return _vm.handleViewUrl(url.id)
+          [
+            _c("div", { staticClass: "links__item" }, [
+              _c("div", { staticClass: "links__item-date" }, [
+                _vm._v(_vm._s(_vm.urls.length) + " Links")
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.urls, function(url, index) {
+              return _c(
+                "div",
+                {
+                  key: index,
+                  staticClass: "links__item",
+                  class: { "links__item--active": url.id === _vm.activeUrl.id },
+                  on: {
+                    click: function($event) {
+                      return _vm.handleViewUrl(url.id)
+                    }
                   }
-                }
-              },
-              [
-                _c("div", { staticClass: "links__item-date" }, [
-                  _vm._v(_vm._s(url.date))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "links__item-long" }, [
-                  _vm._v(_vm._s(url.long_url))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "links__item-short" }, [
-                  _vm._v(_vm._s(url.short_url_full))
-                ])
-              ]
-            )
-          }),
-          0
+                },
+                [
+                  _c("div", { staticClass: "links__item-date" }, [
+                    _vm._v(_vm._s(url.date))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "links__item-long" }, [
+                    _vm._v(_vm._s(url.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "links__item-short" }, [
+                    _vm._v(_vm._s(url.short_url_full))
+                  ])
+                ]
+              )
+            })
+          ],
+          2
         )
-      : _c("div", { staticClass: "links__list" }, [_vm._m(0)]),
+      : _c("div", { staticClass: "links__list" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1)
+        ]),
     _vm._v(" "),
     Object.keys(_vm.activeUrl).length
       ? _c("div", { staticClass: "links__details" }, [
@@ -20432,6 +20452,14 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "links__item" }, [
+      _c("div", { staticClass: "links__item-date" }, [_vm._v("0 Links")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
