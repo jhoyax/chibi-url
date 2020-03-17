@@ -20375,6 +20375,10 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "links__item-short" }, [
                     _vm._v(_vm._s(url.short_url_full))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "links__item-total" }, [
+                    _vm._v("Clicks: " + _vm._s(url.total_click))
                   ])
                 ]
               )
@@ -20434,15 +20438,13 @@ var render = function() {
                 [_vm._v("Copy")]
               ),
               _vm._v(" "),
-              _c("button", [_vm._v("Edit")]),
-              _vm._v(" "),
-              _c("button", [_vm._v("Share")])
+              _c("button", [_vm._v("Edit")])
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "links__details-click" }, [
             _c("div", { staticClass: "details-click__total" }, [
-              _vm._v(_vm._s(_vm.activeUrl.total_clicks))
+              _vm._v("Total Click: " + _vm._s(_vm.activeUrl.total_click))
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "details-click__graph" })

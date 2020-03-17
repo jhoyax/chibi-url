@@ -14,6 +14,7 @@
                 <div class="links__item-date">{{ url.date }}</div>
                 <div class="links__item-long">{{ url.title }}</div>
                 <div class="links__item-short">{{ url.short_url_full }}</div>
+                <div class="links__item-total">Clicks: {{ url.total_click }}</div>
             </div>
         </div>
         <div class="links__list" v-else>
@@ -32,11 +33,10 @@
                 <div class="details-short__actions">
                     <button v-clipboard:copy="activeUrl.short_url_full">Copy</button>
                     <button>Edit</button>
-                    <button>Share</button>
                 </div>
             </div>
             <div class="links__details-click">
-                <div class="details-click__total">{{ activeUrl.total_clicks }}</div>
+                <div class="details-click__total">Total Click: {{ activeUrl.total_click }}</div>
                 <div class="details-click__graph"></div>
             </div>
         </div>

@@ -16,6 +16,10 @@ class HomeController extends Controller
     public function show($slug)
     {
         if ($url = Url::findByShortUrl($slug)->first()) {
+            // count click
+            $url->total_click = $url->total_click + 1;
+            $url->save();
+
             return redirect()->away($url->long_url);
         }
 
