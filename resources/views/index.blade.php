@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
+        <div id="app"></div>
         @if (Auth::check())
             <script>
                 window.laravel = {!!json_encode([
@@ -22,7 +23,6 @@
                 ])!!}
             </script>
         @endif
-        <div id="app"></div>
         <script src="/js/app.js" type="text/javascript"></script>
     </body>
 </html>

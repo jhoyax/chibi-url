@@ -1,6 +1,10 @@
 .links {
     display: flex;
     border-top: 1px solid $color-light-grey;
+
+    @include max-screen($phone-max-width) {
+        flex-direction: column;
+    }
 }
 
 .links__list {
@@ -11,6 +15,11 @@
     height: 460px;
     overflow: hidden;
     overflow-y: scroll;
+
+    @include max-screen($phone-max-width) {
+        width: 100%;
+        border-bottom: 1px solid $color-light-grey;
+    }
 }
 
 .links__item {
@@ -51,6 +60,10 @@
 .links__details {
     padding: 20px 30px;
     width: 60%;
+
+    @include max-screen($phone-max-width) {
+        width: 100%;
+    }
 }
 
 .links__details-date {

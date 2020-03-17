@@ -14,6 +14,14 @@
     width: 40%;
     background-color: $color-white;
     padding: 40px 30px;
+
+    @include max-screen($tablet-max-width) {
+        width: 60%;
+    }
+
+    @include max-screen($phone-max-width) {
+        width: 90%;
+    }
 }
 
 .edit-url__close {

@@ -8,6 +8,11 @@
     a {
         color: $color-white;
     }
+
+    @include max-screen($phone-max-width) {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 .nav__list {
@@ -16,5 +21,13 @@
 
     li {
         margin-left: 20px;
+    }
+
+    @include max-screen($phone-max-width) {
+        flex-direction: column;
+
+        li {
+            margin-left: 0;
+        }
     }
 }

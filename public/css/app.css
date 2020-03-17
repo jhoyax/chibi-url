@@ -246,6 +246,12 @@ body {
   color: #273849;
 }
 
+@media only screen and (max-width: 319px) {
+  body {
+    min-width: 320px;
+  }
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -257,6 +263,12 @@ button:disabled {
 
 .container {
   padding: 0 30px;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 0 10px;
+  }
 }
 
 .header {
@@ -271,6 +283,13 @@ button:disabled {
   color: #fff;
 }
 
+@media only screen and (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 .nav__list {
   display: flex;
   list-style: none;
@@ -278,6 +297,16 @@ button:disabled {
 
 .nav__list li {
   margin-left: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .nav__list {
+    flex-direction: column;
+  }
+
+  .nav__list li {
+    margin-left: 0;
+  }
 }
 
 .url-shortener {
@@ -319,6 +348,12 @@ button:disabled {
   border-top: 1px solid #dadada;
 }
 
+@media only screen and (max-width: 767px) {
+  .links {
+    flex-direction: column;
+  }
+}
+
 .links__list {
   display: flex;
   flex-direction: column;
@@ -327,6 +362,13 @@ button:disabled {
   height: 460px;
   overflow: hidden;
   overflow-y: scroll;
+}
+
+@media only screen and (max-width: 767px) {
+  .links__list {
+    width: 100%;
+    border-bottom: 1px solid #dadada;
+  }
 }
 
 .links__item {
@@ -367,6 +409,12 @@ button:disabled {
 .links__details {
   padding: 20px 30px;
   width: 60%;
+}
+
+@media only screen and (max-width: 767px) {
+  .links__details {
+    width: 100%;
+  }
 }
 
 .links__details-date {
@@ -417,7 +465,7 @@ button:disabled {
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
+  width: 320px;
   background-color: #fff;
   padding: 20px 25px;
 }
@@ -461,6 +509,18 @@ button:disabled {
   padding: 20px 30px;
 }
 
+@media only screen and (max-width: 1023px) {
+  .form {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .form {
+    width: 90%;
+  }
+}
+
 .form__field {
   width: 100%;
   padding: 10px 15px;
@@ -499,6 +559,12 @@ button:disabled {
   border: none;
   flex-grow: 1;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+  .label-x-field {
+    flex-direction: column;
+  }
 }
 
 .section {
@@ -552,6 +618,18 @@ button:disabled {
   width: 40%;
   background-color: #fff;
   padding: 40px 30px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .edit-url__form {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .edit-url__form {
+    width: 90%;
+  }
 }
 
 .edit-url__close {
