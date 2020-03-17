@@ -31,3 +31,18 @@
 .form__title {
     font-size: 1.5rem;
 }
+
+
+.label-x-field {
+    border: 1px solid $color-light-grey;
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
+
+    input {
+        border: none;
+        flex-grow: 1;
+        font-weight: bold;
+    }
+}

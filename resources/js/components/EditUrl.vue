@@ -16,12 +16,14 @@
             </div>
             <div class="form__group">
                 <label>Short URL</label>
-                <input
-                    type="text"
-                    class="form__field"
-                    v-model="short_url"
-                    required
-                >
+                <div class="label-x-field">
+                    <label>http://test.com/</label>
+                    <input
+                        type="text"
+                        v-model="short_url"
+                        required
+                    >
+                </div>
                 <messages-list :items="messages.short_url"/>
             </div>
             <div class="form__group">

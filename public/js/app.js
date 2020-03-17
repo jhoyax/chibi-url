@@ -1982,6 +1982,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -20434,27 +20436,30 @@ var render = function() {
         [
           _c("label", [_vm._v("Short URL")]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.short_url,
-                expression: "short_url"
-              }
-            ],
-            staticClass: "form__field",
-            attrs: { type: "text", required: "" },
-            domProps: { value: _vm.short_url },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+          _c("div", { staticClass: "label-x-field" }, [
+            _c("label", [_vm._v("http://test.com/")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.short_url,
+                  expression: "short_url"
                 }
-                _vm.short_url = $event.target.value
+              ],
+              attrs: { type: "text", required: "" },
+              domProps: { value: _vm.short_url },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.short_url = $event.target.value
+                }
               }
-            }
-          }),
+            })
+          ]),
           _vm._v(" "),
           _c("messages-list", { attrs: { items: _vm.messages.short_url } })
         ],

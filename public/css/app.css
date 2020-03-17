@@ -487,6 +487,20 @@ button:disabled {
   font-size: 1.5rem;
 }
 
+.label-x-field {
+  border: 1px solid #dadada;
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.label-x-field input {
+  border: none;
+  flex-grow: 1;
+  font-weight: bold;
+}
+
 .section {
   padding-top: 30px;
   padding-bottom: 30px;
