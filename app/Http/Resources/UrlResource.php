@@ -16,7 +16,8 @@ class UrlResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title?:$this->long_url,
+            'title' => $this->title ?: $this->long_url,
+            'title_original' => $this->title,
             'short_url' => $this->short_url,
             'short_url_full' => config('app.url') . '/' . $this->short_url,
             'long_url' => $this->long_url,

@@ -69,22 +69,25 @@ export default {
 
             let that = this;
             axios.post('/api/register', {
-                name: this.fields.name,
-                email: this.fields.email,
-                password: this.fields.password,
-                password_confirmation: this.fields.password_confirmation,
+                name: that.fields.name,
+                email: that.fields.email,
+                password: that.fields.password,
+                password_confirmation: that.fields.password_confirmation,
             }).then(response => {
+                that.isSuccess = true;
+
                 that.messages.general = [response.data.message];
                 that.messages.name = [];
                 that.messages.email = [];
                 that.messages.password = [];
-                that.isSuccess = true;
 
                 that.fields.name = '';
                 that.fields.email = '';
                 that.fields.password = '';
                 that.fields.password_confirmation = '';
             }).catch(error => {
+                that.isSuccess = false;
+
                 that.messages.general = [error.response.data.message];
                 that.messages.name = error.response.data.errors.name;
                 that.messages.email = error.response.data.errors.email;

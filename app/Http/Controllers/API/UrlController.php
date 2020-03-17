@@ -56,7 +56,9 @@ class UrlController extends Controller
      */
     public function update(UpdateUrlRequest $request, Url $url)
     {
-        //
+        $url->update($request->all());
+
+        return ['message' => 'Successfully updated.'];
     }
 
     /**

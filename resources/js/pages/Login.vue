@@ -58,19 +58,22 @@ export default {
             let that = this;
             axios.get('/airlock/csrf-cookie').then(response => {
                 axios.post('api/login', {
-                    email: this.fields.email,
-                    password: this.fields.password
+                    email: that.fields.email,
+                    password: that.fields.password
                 }).then(response => {
+                    that.isSuccess = true;
+
                     that.messages.general = [response.data.message];
                     that.messages.email = [];
                     that.messages.password = [];
-                    that.isSuccess = true;
 
                     that.fields.email = '';
                     that.fields.password = '';
 
                     location.reload();
                 }).catch(error => {
+                    that.isSuccess = false;
+
                     that.messages.general = [error.response.data.message];
                     that.messages.email = error.response.data.errors.email;
                     that.messages.password = error.response.data.errors.password;

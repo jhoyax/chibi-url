@@ -42,24 +42,26 @@ export default {
         createShortUrl() {
             let that = this;
 
-            if (this.isLoggedIn) {
+            if (that.isLoggedIn) {
                 that.button.name = 'Creating...';
                 that.button.isDisabled = true;
-                that.isSuccess = false;
-                that.messages.long_url = [];
-
                 axios.post('api/urls', {
                     long_url: that.fields.long_url,
                 })
                 .then(response => {
-                    that.messages.long_url = [response.data.message];
-                    that.fields.long_url = '';
-                    that.button.name = 'Create';
-                    that.button.isDisabled = false;
                     that.isSuccess = true;
 
-                    this.$store.dispatch(FETCH_URLS);
+                    that.messages.long_url = [response.data.message];
+
+                    that.fields.long_url = '';
+
+                    that.button.name = 'Create';
+                    that.button.isDisabled = false;
+
+                    that.$store.dispatch(FETCH_URLS);
                 }).catch(function (error) {
+                    that.isSuccess = false;
+
                     that.messages.long_url = error.response.data.errors.long_url ? error.response.data.errors.long_url : error.response.data.message;
                     that.button.name = 'Create';
                     that.button.isDisabled = false;

@@ -8,14 +8,14 @@ export const state = {
 };
 
 export const actions = {
-    [FETCH_URLS]({ commit}) {
+    [FETCH_URLS]({ commit}, resetActiveUrl = true) {
         return axios
             .get('/api/urls')
             .then(response => {
                 commit(SET_URLS, response.data.data)
 
                 // set active url
-                if (response.data.data.length) {
+                if (response.data.data.length && resetActiveUrl) {
                     commit(SET_ACTIVE_URL, response.data.data[0])
                 }
             })

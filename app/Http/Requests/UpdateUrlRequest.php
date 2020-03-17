@@ -24,7 +24,7 @@ class UpdateUrlRequest extends FormRequest
     public function rules()
     {
         return [
-            'short_url' => ['required', 'unique:urls'],
+            'short_url' => ['required', 'unique:urls,short_url,' . $this->route('url')->id],
         ];
     }
 }

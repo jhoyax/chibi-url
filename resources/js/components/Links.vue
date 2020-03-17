@@ -27,12 +27,13 @@
         </div>
         <div class="links__details" v-if="Object.keys(activeUrl).length">
             <div class="links__details-date">{{ activeUrl.dateTime }}</div>
+            <div class="links__details-title" v-if="activeUrl.title_original">{{ activeUrl.title_original }}</div>
             <div class="links__details-long">{{ activeUrl.long_url }}</div>
             <div class="links__details-short">
                 <div class="details-short__url"><a :href="activeUrl.short_url_full" target="_blank">{{appUrl}}<span class="text-bold">{{ activeUrl.short_url }}</span></a></div>
                 <div class="details-short__actions">
                     <button v-clipboard:copy="activeUrl.short_url_full">Copy</button>
-                    <button>Edit</button>
+                    <button @click="handleShowEditUrl">Edit</button>
                 </div>
             </div>
             <div class="links__details-click">
@@ -63,6 +64,9 @@ export default {
     methods: {
         handleViewUrl(urlID) {
             this.$store.dispatch(FETCH_ACTIVE_URL, urlID);
+        },
+        handleShowEditUrl() {
+            this.$emit('showEditUrl');
         },
     },
     mounted() {
