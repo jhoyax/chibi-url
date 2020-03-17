@@ -58,7 +58,7 @@ export default {
     name: 'Links',
     data() {
         return {
-            appUrl: APP_URL + '/'
+            appUrl: APP_URL + '/',
         };
     },
     methods: {

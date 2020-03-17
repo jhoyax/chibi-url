@@ -17,7 +17,7 @@
             <div class="form__group">
                 <label>Short URL</label>
                 <div class="label-x-field">
-                    <label>http://test.com/</label>
+                    <label>{{ appUrl }}</label>
                     <input
                         type="text"
                         v-model="short_url"
@@ -40,6 +40,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import { APP_URL } from '../constant.js';
 import { FETCH_URLS, FETCH_ACTIVE_URL } from "../store/ActionTypes.js";
 import MessagesList from './MessagesList';
 
@@ -50,6 +51,7 @@ export default {
     },
     data() {
         return {
+            appUrl: APP_URL + '/',
             messages: {
                 general: [],
                 short_url: [],

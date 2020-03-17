@@ -1936,8 +1936,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _store_ActionTypes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/ActionTypes.js */ "./resources/js/store/ActionTypes.js");
-/* harmony import */ var _MessagesList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MessagesList */ "./resources/js/components/MessagesList.vue");
+/* harmony import */ var _constant_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constant.js */ "./resources/js/constant.js");
+/* harmony import */ var _store_ActionTypes_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/ActionTypes.js */ "./resources/js/store/ActionTypes.js");
+/* harmony import */ var _MessagesList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MessagesList */ "./resources/js/components/MessagesList.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1987,13 +1988,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'EditUrl',
   components: {
-    MessagesList: _MessagesList__WEBPACK_IMPORTED_MODULE_2__["default"]
+    MessagesList: _MessagesList__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
+      appUrl: _constant_js__WEBPACK_IMPORTED_MODULE_1__["APP_URL"] + '/',
       messages: {
         general: [],
         short_url: []
@@ -2004,7 +2007,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     handleShowEditUrl: function handleShowEditUrl() {
       // refresh data
-      this.$store.dispatch(_store_ActionTypes_js__WEBPACK_IMPORTED_MODULE_1__["FETCH_ACTIVE_URL"], this.activeUrl.id);
+      this.$store.dispatch(_store_ActionTypes_js__WEBPACK_IMPORTED_MODULE_2__["FETCH_ACTIVE_URL"], this.activeUrl.id);
       this.$emit('showEditUrl');
     },
     handleSave: function handleSave(e) {
@@ -2018,7 +2021,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         that.messages.general = [response.data.message];
         that.messages.short_url = []; // refresh data
 
-        that.$store.dispatch(_store_ActionTypes_js__WEBPACK_IMPORTED_MODULE_1__["FETCH_URLS"], false);
+        that.$store.dispatch(_store_ActionTypes_js__WEBPACK_IMPORTED_MODULE_2__["FETCH_URLS"], false);
       })["catch"](function (error) {
         that.isSuccess = false;
         that.messages.general = [error.response.data.message];
@@ -20437,7 +20440,7 @@ var render = function() {
           _c("label", [_vm._v("Short URL")]),
           _vm._v(" "),
           _c("div", { staticClass: "label-x-field" }, [
-            _c("label", [_vm._v("http://test.com/")]),
+            _c("label", [_vm._v(_vm._s(_vm.appUrl))]),
             _vm._v(" "),
             _c("input", {
               directives: [
