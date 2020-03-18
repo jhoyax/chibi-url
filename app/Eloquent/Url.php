@@ -27,4 +27,12 @@ class Url extends Model
 
         return $query;
     }
+
+    /**
+     * Get all of the url clicks.
+     */
+    public function urlClicks()
+    {
+        return $this->hasMany(UrlClick::class);
+    }
 }
