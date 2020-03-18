@@ -60,15 +60,4 @@ class UrlController extends Controller
 
         return ['message' => 'Successfully updated.'];
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Eloquent\Url  $url
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Url $url)
-    {
-        //
-    }
 }

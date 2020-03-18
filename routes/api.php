@@ -24,7 +24,6 @@ Route::namespace('API')->group(function () {
             Route::post('/', 'UrlController@store')->name('urls.store');
             Route::get('{url}', 'UrlController@show')->name('urls.show');
             Route::patch('{url}', 'UrlController@update')->name('urls.update');
-            Route::delete('{url}', 'UrlController@destory')->name('urls.destory');
         });
     });
 });

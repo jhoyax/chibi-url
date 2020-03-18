@@ -24,6 +24,28 @@ class UrlResource extends JsonResource
             'total_click' => $this->total_click,
             'date' => $this->created_at->toFormattedDateString(),
             'dateTime' => $this->created_at->toDayDateTimeString(),
+            'clicksFor30days' => $this->clicksFor30days(),
         ];
+    }
+
+    private function clicksFor30days()
+    {
+        $reports = [
+            'labels' => [],
+            'data' => [],
+        ];
+        for ($i=30; $i >= 0; $i--) {
+            $currentDate = date('Y-m-d', strtotime('-' . $i . ' days'));
+            array_push(
+                $reports['labels'],
+                $currentDate
+            );
+            array_push(
+                $reports['data'],
+                $this->urlClicks()->whereRaw('DATE_FORMAT(created_at, "%Y-%m-%d") = "' . $currentDate . '"')->count()
+            );
+        }
+
+        return $reports;
     }
 }

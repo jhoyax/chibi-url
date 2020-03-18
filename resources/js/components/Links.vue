@@ -40,6 +40,7 @@
                 <div class="details-click__total">Total Click: {{ activeUrl.total_click }}</div>
                 <div class="details-click__graph"></div>
             </div>
+            <click-chart :labels="chartLabels" :data="chartData"/>
         </div>
     </div>
 </template>
@@ -50,12 +51,16 @@ import { mapState } from 'vuex';
 import { APP_URL } from '../constant.js';
 import { FETCH_URLS, FETCH_ACTIVE_URL } from "../store/ActionTypes.js";
 import VueClipboard from 'vue-clipboard2';
+import ClickChart from './ClickChart';
 
 VueClipboard.config.autoSetContainer = true;
 Vue.use(VueClipboard);
 
 export default {
     name: 'Links',
+    components: {
+        ClickChart,
+    },
     data() {
         return {
             appUrl: APP_URL + '/',
@@ -76,7 +81,17 @@ export default {
         ...mapState({
             urls: state => state.urls.urls,
             activeUrl: state => state.urls.activeUrl,
-        })
+        }),
+        chartLabels: {
+            get() {
+                return this.activeUrl.clicksFor30days.labels;
+            }
+        },
+        chartData: {
+            get() {
+                return this.activeUrl.clicksFor30days.data;
+            }
+        },
     },
 }
 </script>
