@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { FETCH_URLS, FETCH_ACTIVE_URL } from '../ActionTypes';
-import { SET_URLS, SET_ACTIVE_URL } from '../Mutations';
+import { SET_URLS, SET_ACTIVE_URL, SET_URL_IS_FETCHING } from '../Mutations';
 
 export const state = {
     urls: [],
     activeUrl: {},
+    isFetching: true,
 };
 
 export const actions = {
@@ -18,8 +19,11 @@ export const actions = {
                 if (response.data.data.length && resetActiveUrl) {
                     commit(SET_ACTIVE_URL, response.data.data[0])
                 }
+
+                commit(SET_URL_IS_FETCHING, false);
             })
             .catch(error => {
+                commit(SET_URL_IS_FETCHING, false);
                 throw(error);
             });
     },
@@ -27,7 +31,7 @@ export const actions = {
         return axios
             .get('/api/urls/' + urlID)
             .then(response => {
-                commit(SET_ACTIVE_URL, response.data.data)
+                commit(SET_ACTIVE_URL, response.data.data);
             })
             .catch(error => {
                 throw(error);
@@ -41,6 +45,9 @@ export const mutations = {
     },
     [SET_ACTIVE_URL](state, activeUrl) {
         state.activeUrl = activeUrl;
+    },
+    [SET_URL_IS_FETCHING](state, isFetching) {
+        state.isFetching = isFetching;
     },
 };
 

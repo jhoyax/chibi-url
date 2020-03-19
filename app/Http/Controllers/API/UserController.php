@@ -19,7 +19,7 @@ class UserController extends Controller
             return ['message' => 'Successful login.'];
         }
 
-        return ['message' => 'User not found.'];
+        return response(['message' => 'User not found.'], 401);
     }
 
     public function logout()
