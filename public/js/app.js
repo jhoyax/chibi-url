@@ -2338,6 +2338,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_clipboard2__WEBPACK_IMPORTED_
   },
   methods: {
     handleViewUrl: function handleViewUrl(urlID) {
+      this.$store.dispatch(_store_ActionTypes_js__WEBPACK_IMPORTED_MODULE_3__["FETCH_URLS"], false);
       this.$store.dispatch(_store_ActionTypes_js__WEBPACK_IMPORTED_MODULE_3__["FETCH_ACTIVE_URL"], urlID);
     },
     handleShowEditUrl: function handleShowEditUrl() {

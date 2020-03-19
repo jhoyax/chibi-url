@@ -100,6 +100,7 @@ export default {
     },
     methods: {
         handleViewUrl(urlID) {
+            this.$store.dispatch(FETCH_URLS, false);
             this.$store.dispatch(FETCH_ACTIVE_URL, urlID);
         },
         handleShowEditUrl() {
