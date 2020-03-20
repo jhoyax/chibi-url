@@ -7,6 +7,7 @@ use App\Http\Requests\LoginUserRequest;
 use App\Eloquent\User;
 use App\Http\Requests\RegisterUserRequest;
 use App\Http\Resources\UserResource;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -19,7 +20,7 @@ class UserController extends Controller
             return ['message' => 'Successful login.'];
         }
 
-        return response(['message' => 'User not found.'], 401);
+        return response(['message' => 'User not found.'], Response::HTTP_UNAUTHORIZED);
     }
 
     public function logout()

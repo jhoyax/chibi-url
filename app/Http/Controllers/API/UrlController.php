@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUrlRequest;
 use App\Http\Requests\UpdateUrlRequest;
 use App\Http\Resources\UrlResource;
+use Illuminate\Http\Response;
 
 class UrlController extends Controller
 {
@@ -33,7 +34,8 @@ class UrlController extends Controller
             'short_url' => Url::generateShortUrl(),
             'long_url' => $long_url,
         ]);
-        return ['message' => 'Short url created.'];
+
+        return response(['message' => 'Short url created.'], Response::HTTP_CREATED);
     }
 
     /**
@@ -58,6 +60,6 @@ class UrlController extends Controller
     {
         $url->update($request->all());
 
-        return ['message' => 'Successfully updated.'];
+        return response(['message' => 'Successfully updated.'], Response::HTTP_OK);
     }
 }
