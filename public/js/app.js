@@ -55309,7 +55309,7 @@ var render = function() {
               {
                 attrs: {
                   height: "200",
-                  speed: "2",
+                  speed: 2,
                   primaryColor: "#ffffff",
                   secondaryColor: "#f3f3f3"
                 }
@@ -55429,7 +55429,7 @@ var render = function() {
               {
                 attrs: {
                   height: "200",
-                  speed: "2",
+                  speed: 2,
                   primaryColor: "#f3f3f3",
                   secondaryColor: "#ecebeb"
                 }

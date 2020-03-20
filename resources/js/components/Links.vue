@@ -3,7 +3,7 @@
         <div class="links__list" v-if="isFetching">
             <content-loader
                 height="200"
-                speed="2"
+                :speed=2
                 primaryColor="#ffffff"
                 secondaryColor="#f3f3f3"
             >
@@ -42,7 +42,7 @@
         <div class="links__details" v-if="isFetching">
             <content-loader
                 height="200"
-                speed="2"
+                :speed=2
                 primaryColor="#f3f3f3"
                 secondaryColor="#ecebeb"
             >
