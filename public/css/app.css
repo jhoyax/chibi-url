@@ -277,6 +277,7 @@ button:disabled {
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #42b983;
+  position: relative;
 }
 
 .header a {
@@ -286,8 +287,17 @@ button:disabled {
 @media only screen and (max-width: 767px) {
   .header {
     flex-direction: column;
-    text-align: center;
   }
+}
+
+@media only screen and (max-width: 767px) {
+  .nav {
+    display: none;
+  }
+}
+
+.nav--show {
+  display: block;
 }
 
 .nav__list {
@@ -306,6 +316,28 @@ button:disabled {
 
   .nav__list li {
     margin-left: 0;
+  }
+}
+
+.header__burger {
+  width: 20px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  cursor: pointer;
+  display: none;
+}
+
+.header__burger span {
+  height: 2px;
+  background-color: #fff;
+  margin-bottom: 4px;
+  display: block;
+}
+
+@media only screen and (max-width: 767px) {
+  .header__burger {
+    display: block;
   }
 }
 

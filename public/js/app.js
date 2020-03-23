@@ -2190,11 +2190,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   data: function data() {
     return {
-      isLoggedIn: false
+      isLoggedIn: false,
+      showNav: false
     };
   },
   methods: {
@@ -2206,6 +2212,10 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         alert(error.response.data.message);
       });
+    },
+    handleBurgerClick: function handleBurgerClick(e) {
+      e.preventDefault();
+      this.showNav = !this.showNav;
     }
   },
   mounted: function mounted() {
@@ -55227,7 +55237,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "nav" }, [
+    _c("div", { staticClass: "nav", class: { "nav--show": _vm.showNav } }, [
       _c("ul", { staticClass: "nav__list" }, [
         _c(
           "li",
@@ -55273,7 +55283,13 @@ var render = function() {
             : _vm._e()
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "header__burger", on: { click: _vm.handleBurgerClick } },
+      [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]
+    )
   ])
 }
 var staticRenderFns = []
@@ -55299,7 +55315,59 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "links" }, [
-    _vm.isFetching
+    _vm.urls.length
+      ? _c(
+          "div",
+          { staticClass: "links__list" },
+          [
+            _c("div", { staticClass: "links__item" }, [
+              _c("div", { staticClass: "links__item-date" }, [
+                _vm._v(_vm._s(_vm.urls.length) + " Links")
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.urls, function(url, index) {
+              return _c(
+                "div",
+                {
+                  key: index,
+                  staticClass: "links__item",
+                  class: { "links__item--active": url.id === _vm.activeUrl.id },
+                  on: {
+                    click: function($event) {
+                      return _vm.handleViewUrl(url.id)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "links__item-date" }, [
+                    _vm._v(_vm._s(url.date))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "links__item-long" }, [
+                    _vm._v(_vm._s(url.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "links__item-short" }, [
+                    _vm._v(_vm._s(url.short_url_full))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "links__item-total" }, [
+                    _vm._v("Clicks: " + _vm._s(url.total_click))
+                  ])
+                ]
+              )
+            })
+          ],
+          2
+        )
+      : !_vm.isFetching
+      ? _c("div", { staticClass: "links__list" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
+      : _vm.isFetching
       ? _c(
           "div",
           { staticClass: "links__list" },
@@ -55365,61 +55433,82 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _vm.urls.length
+    Object.keys(_vm.activeUrl).length
       ? _c(
           "div",
-          { staticClass: "links__list" },
+          { staticClass: "links__details" },
           [
-            _c("div", { staticClass: "links__item" }, [
-              _c("div", { staticClass: "links__item-date" }, [
-                _vm._v(_vm._s(_vm.urls.length) + " Links")
+            _c("div", { staticClass: "links__details-date" }, [
+              _vm._v(_vm._s(_vm.activeUrl.dateTime))
+            ]),
+            _vm._v(" "),
+            _vm.activeUrl.title_original
+              ? _c("div", { staticClass: "links__details-title" }, [
+                  _vm._v(_vm._s(_vm.activeUrl.title_original))
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "links__details-long" }, [
+              _vm._v(_vm._s(_vm.activeUrl.long_url))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "links__details-short" }, [
+              _c("div", { staticClass: "details-short__url" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: _vm.activeUrl.short_url_full,
+                      target: "_blank"
+                    }
+                  },
+                  [
+                    _vm._v(_vm._s(_vm.appUrl)),
+                    _c("span", { staticClass: "text-bold" }, [
+                      _vm._v(_vm._s(_vm.activeUrl.short_url))
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "details-short__actions" }, [
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "clipboard",
+                        rawName: "v-clipboard:copy",
+                        value: _vm.activeUrl.short_url_full,
+                        expression: "activeUrl.short_url_full",
+                        arg: "copy"
+                      }
+                    ]
+                  },
+                  [_vm._v("Copy")]
+                ),
+                _vm._v(" "),
+                _c("button", { on: { click: _vm.handleShowEditUrl } }, [
+                  _vm._v("Edit")
+                ])
               ])
             ]),
             _vm._v(" "),
-            _vm._l(_vm.urls, function(url, index) {
-              return _c(
-                "div",
-                {
-                  key: index,
-                  staticClass: "links__item",
-                  class: { "links__item--active": url.id === _vm.activeUrl.id },
-                  on: {
-                    click: function($event) {
-                      return _vm.handleViewUrl(url.id)
-                    }
-                  }
-                },
-                [
-                  _c("div", { staticClass: "links__item-date" }, [
-                    _vm._v(_vm._s(url.date))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "links__item-long" }, [
-                    _vm._v(_vm._s(url.title))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "links__item-short" }, [
-                    _vm._v(_vm._s(url.short_url_full))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "links__item-total" }, [
-                    _vm._v("Clicks: " + _vm._s(url.total_click))
-                  ])
-                ]
-              )
+            _c("div", { staticClass: "links__details-click" }, [
+              _c("div", { staticClass: "details-click__total" }, [
+                _vm._v("Total Click: " + _vm._s(_vm.activeUrl.total_click))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "details-click__graph" })
+            ]),
+            _vm._v(" "),
+            _c("click-chart", {
+              attrs: { labels: _vm.chartLabels, data: _vm.chartData }
             })
           ],
-          2
+          1
         )
-      : !_vm.isFetching
-      ? _c("div", { staticClass: "links__list" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1)
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.isFetching
+      : _vm.isFetching
       ? _c(
           "div",
           { staticClass: "links__details" },
@@ -55513,83 +55602,6 @@ var render = function() {
                 })
               ]
             )
-          ],
-          1
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    Object.keys(_vm.activeUrl).length
-      ? _c(
-          "div",
-          { staticClass: "links__details" },
-          [
-            _c("div", { staticClass: "links__details-date" }, [
-              _vm._v(_vm._s(_vm.activeUrl.dateTime))
-            ]),
-            _vm._v(" "),
-            _vm.activeUrl.title_original
-              ? _c("div", { staticClass: "links__details-title" }, [
-                  _vm._v(_vm._s(_vm.activeUrl.title_original))
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "links__details-long" }, [
-              _vm._v(_vm._s(_vm.activeUrl.long_url))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "links__details-short" }, [
-              _c("div", { staticClass: "details-short__url" }, [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: _vm.activeUrl.short_url_full,
-                      target: "_blank"
-                    }
-                  },
-                  [
-                    _vm._v(_vm._s(_vm.appUrl)),
-                    _c("span", { staticClass: "text-bold" }, [
-                      _vm._v(_vm._s(_vm.activeUrl.short_url))
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "details-short__actions" }, [
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "clipboard",
-                        rawName: "v-clipboard:copy",
-                        value: _vm.activeUrl.short_url_full,
-                        expression: "activeUrl.short_url_full",
-                        arg: "copy"
-                      }
-                    ]
-                  },
-                  [_vm._v("Copy")]
-                ),
-                _vm._v(" "),
-                _c("button", { on: { click: _vm.handleShowEditUrl } }, [
-                  _vm._v("Edit")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "links__details-click" }, [
-              _c("div", { staticClass: "details-click__total" }, [
-                _vm._v("Total Click: " + _vm._s(_vm.activeUrl.total_click))
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "details-click__graph" })
-            ]),
-            _vm._v(" "),
-            _c("click-chart", {
-              attrs: { labels: _vm.chartLabels, data: _vm.chartData }
-            })
           ],
           1
         )

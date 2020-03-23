@@ -4,6 +4,7 @@
     padding-top: 15px;
     padding-bottom: 15px;
     background-color: $color-green;
+    position: relative;
 
     a {
         color: $color-white;
@@ -11,8 +12,17 @@
 
     @include max-screen($phone-max-width) {
         flex-direction: column;
-        text-align: center;
     }
+}
+
+.nav {
+    @include max-screen($phone-max-width) {
+        display: none;
+    }
+}
+
+.nav--show {
+    display: block;
 }
 
 .nav__list {
@@ -29,5 +39,25 @@
         li {
             margin-left: 0;
         }
+    }
+}
+
+.header__burger {
+    width: 20px;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;
+    display: none;
+
+    span {
+        height: 2px;
+        background-color: $color-white;
+        margin-bottom: 4px;
+        display: block;
+    }
+
+    @include max-screen($phone-max-width) {
+        display: block;
     }
 }
