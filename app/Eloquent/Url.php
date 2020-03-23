@@ -12,18 +12,18 @@ class Url extends Model
     public static function generateShortUrl()
     {
         $slug = Str::random(6);
-        $countSlug = self::where('short_url', $slug)->count();
+        $countSlug = self::whereShortUrl($slug)->count();
 
         while ($countSlug !== 0) {
             $slug = Str::random(6);
-            $countSlug = self::where('short_url', $slug)->count();
+            $countSlug = self::whereShortUrl($slug)->count();
         }
         return $slug;
     }
 
     public function scopeFindByShortUrl($query, $slug)
     {
-        $query->where('short_url', $slug);
+        $query->whereShortUrl($slug);
 
         return $query;
     }
